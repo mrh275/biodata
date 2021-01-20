@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h2.brand {
+  padding-top: 9px;
+}
+
+section {
+  h3 {
+    font-weight: 650;
+  }
+  a.formulir {
+    text-decoration: none;
+    color: #0d6efd;
+    background-color: #fff;
+    transition: all 0.3s;
+    // border: 1px solid rgba(0, 0, 0, 0.125);
+    :hover {
+      color: #fff;
+      background-color: #0d6efd;
+      transition: all 0.3s;
+    }
+  }
+  form.berkas-upload {
+    img.ijazah {
+      max-width: 120px;
+    }
+    hr {
+      height: 1px;
+      color: #343a40;
+      background-color: #343a40;
+      opacity: 0.5;
+    }
+  }
+}
+
+footer.container-fluid {
+  color: #fff;
+  .foot {
+    text-align: right;
+    .fa-heart {
+      color: red;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  header .col-lg-1,
+  .col-lg-11 {
+    display: flex !important;
+    justify-content: center !important;
+  }
+  header .col-lg-1 {
+    margin-bottom: 0 !important;
+  }
+  header .col-lg-11 {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+  }
+  section {
+    form.berkas-upload {
+      img.ijazah {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 470px) {
+  header .col-lg-1,
+  .col-lg-11 {
+    display: flex !important;
+    justify-content: center !important;
+  }
+  header .col-lg-11 {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+    h2.brand {
+      font-size: 6vw;
+    }
+  }
+}

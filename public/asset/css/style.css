@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h2.brand {
+  padding-top: 9px;
+}
+
+section h3 {
+  font-weight: 650;
+}
+
+section a.formulir {
+  text-decoration: none;
+  color: #0d6efd;
+  background-color: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+section a.formulir :hover {
+  color: #fff;
+  background-color: #0d6efd;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+section form.berkas-upload img.ijazah {
+  max-width: 120px;
+}
+
+section form.berkas-upload hr {
+  height: 1px;
+  color: #343a40;
+  background-color: #343a40;
+  opacity: 0.5;
+}
+
+footer.container-fluid {
+  color: #fff;
+}
+
+footer.container-fluid .foot {
+  text-align: right;
+}
+
+footer.container-fluid .foot .fa-heart {
+  color: red;
+}
+
+@media (max-width: 991px) {
+  header .col-lg-1,
+  .col-lg-11 {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+  }
+  header .col-lg-1 {
+    margin-bottom: 0 !important;
+  }
+  header .col-lg-11 {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+  }
+  section form.berkas-upload img.ijazah {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 470px) {
+  header .col-lg-1,
+  .col-lg-11 {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+  }
+  header .col-lg-11 {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+  }
+  header .col-lg-11 h2.brand {
+    font-size: 6vw;
+  }
+}
+/*# sourceMappingURL=style.css.map */
