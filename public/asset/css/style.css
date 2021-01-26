@@ -26,10 +26,6 @@ section a.formulir :hover {
   transition: all 0.3s;
 }
 
-section form.berkas-upload img.ijazah {
-  max-width: 120px;
-}
-
 section form.berkas-upload hr {
   height: 1px;
   color: #343a40;
