@@ -6,11 +6,88 @@ class Dataperiodik extends BaseController
 {
     public function index()
     {
-        return view('front/form-periodik');
+        $data  = [
+            'validation'    => \Config\Services::validation()
+        ];
+
+        return view('front/form-periodik', $data);
     }
 
     public function add()
     {
+        if (!$this->validate([
+            'asal_sekolah'    => [
+                'rules' => 'required[asal_sekolah]',
+                'errors'    => [
+                    'required'  => 'Nama Sekolah Asal (SMP/MTs) wajib diisi!'
+                ]
+            ],
+            'nopes_un'    => [
+                'rules' => 'required[nopes_un]',
+                'errors'    => [
+                    'required'  => 'Nomor Peserta UN SMP/MTs wajib diisi!'
+                ]
+            ],
+            'no_ijazah'    => [
+                'rules' => 'required[no_ijazah]',
+                'errors'    => [
+                    'required'  => 'Nomor Seri Ijazah SMP/MTs wajib diisi!'
+                ]
+            ],
+            'no_skhun'    => [
+                'rules' => 'required[no_skhun]',
+                'errors'    => [
+                    'required'  => 'Nomor Seri SKHUN SMP/MTs wajib diisi!'
+                ]
+            ],
+            'tinggi_badan'    => [
+                'rules' => 'required[tinggi_badan]|numeric|max_length[3]',
+                'errors'    => [
+                    'required'  => 'Tinggi badan wajib diisi!',
+                    'numeric'   => 'Hanya bisa memasukan angka saja.',
+                    'max_length' => 'Maksimal angka yang dapat dimasukan hanya 3 digit.'
+                ]
+            ],
+            'berat_badan'    => [
+                'rules' => 'required[berat_badan]|numeric|max_length[3]',
+                'errors'    => [
+                    'required'  => 'Berat badan wajib diisi!',
+                    'numeric'   => 'Hanya bisa memasukan angka saja.',
+                    'max_length' => 'Maksimal angka yang dapat dimasukan hanya 3 digit.'
+                ]
+            ],
+            'hobi'    => [
+                'rules' => 'required[hobi]',
+                'errors'    => [
+                    'required'  => 'Hobi wajib diisi!'
+                ]
+            ],
+            'cita_cita'    => [
+                'rules' => 'required[cita_cita]',
+                'errors'    => [
+                    'required'  => 'Cita - cita wajib diisi!'
+                ]
+            ],
+            'jarak_rumah'    => [
+                'rules' => 'required[jarak_rumah]|numeric|max_length[4]',
+                'errors'    => [
+                    'required'  => 'Berat badan wajib diisi!',
+                    'numeric'   => 'Hanya bisa memasukan angka saja.',
+                    'max_length' => 'Maksimal angka yang dapat dimasukan hanya 4 digit.'
+                ]
+            ],
+            'waktu_tempuh'    => [
+                'rules' => 'required[waktu_tempuh]|numeric|max_length[4]',
+                'errors'    => [
+                    'required'  => 'Berat badan wajib diisi!',
+                    'numeric'   => 'Hanya bisa memasukan angka saja.',
+                    'max_length' => 'Maksimal angka yang dapat dimasukan hanya 4 digit.'
+                ]
+            ],
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/dataperiodik')->withInput()->with('validation', $validation);
+        }
 
         $data = [
             'asal_sekolah'       => $this->request->getVar('asal_sekolah'),
