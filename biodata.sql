@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jan 2021 pada 15.18
+-- Waktu pembuatan: 26 Jan 2021 pada 17.16
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -59,7 +59,8 @@ CREATE TABLE `biodata_siswa` (
 --
 
 INSERT INTO `biodata_siswa` (`id`, `nama`, `jenis_kelamin`, `kelas`, `nis`, `nisn`, `nik`, `no_kk`, `anak_ke_berapa`, `tempat_lahir`, `tanggal_lahir`, `no_akte`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `desa`, `kecamatan`, `pos`, `tempat_tinggal`, `transportasi`, `created_at`, `updated_at`) VALUES
-(1, 'Muhamad Ramdani Hidayatullah', 'L', '12 IPA 1', '171810021', '0037510343', '3215186905040001', '3215140607070010', '1', 'Karawang', '1997-01-30', '-', '1', 'Perum Bumi Cikampek Baru Blok 8.8 No. 08', '10', '08', 'Kertajaya', 'Balonggandu', 'Jatisari', '41374', '3', '2', '2021-01-19', NULL);
+(1, 'Muhamad Ramdani Hidayatullah', 'L', '12 IPA 1', '171810021', '0037510343', '3215186905040001', '3215140607070010', '1', 'Karawang', '1997-01-30', '-', '1', 'Perum Bumi Cikampek Baru Blok 8.8 No. 08', '10', '08', 'Kertajaya', 'Balonggandu', 'Jatisari', '41374', '3', '2', '2021-01-19', NULL),
+(2, 'Muhamad Ramdani Hidayatullah', 'L', '12 IPA 1', '121310473', '0037510343', '3215186905040001', '3215140607070010', '1', 'Karawang', '1997-01-30', '321sfe', '1', 'Perum Bumi Cikampek Baru Blok 8.8 No. 08', '10', '08', 'Kertajaya', 'Balonggandu', 'Jatisari', '41374', '1', '2', '2021-01-26', NULL);
 
 -- --------------------------------------------------------
 
@@ -85,7 +86,10 @@ CREATE TABLE `data_ayah` (
 --
 
 INSERT INTO `data_ayah` (`id`, `nis`, `nama_ayah`, `nik_ayah`, `tahun_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `created_at`, `updated_at`) VALUES
-(1, '', 'Rudiyanto', '3215142607720001', '1972', '4', '7', '3', '2021-01-19', '0000-00-00');
+(1, '', 'Rudiyanto', '3215142607720001', '1972', '4', '7', '3', '2021-01-19', '0000-00-00'),
+(2, '', 'Rudiyanto', '3215142607720001', '1972', '4', '7', '3', '2021-01-26', NULL),
+(3, '', 'Rudiyanto', '3215142607720001', '1972', '4', '7', '3', '2021-01-26', NULL),
+(4, '', 'Rudiyanto', '3215142607720001', '1972', '4', '7', '3', '2021-01-26', NULL);
 
 -- --------------------------------------------------------
 
@@ -111,7 +115,10 @@ CREATE TABLE `data_ibu` (
 --
 
 INSERT INTO `data_ibu` (`id`, `nis`, `nama_ibu`, `nik_ibu`, `tahun_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `created_at`, `updated_at`) VALUES
-(1, '', 'Siti Nursoleha', '3215142408740001', '1974', '3', '1', '7', '2021-01-19', NULL);
+(1, '', 'Siti Nursoleha', '3215142408740001', '1974', '3', '1', '7', '2021-01-19', NULL),
+(2, '', 'Siti Nursoleha', '3215142408740001', '1974', '3', '1', '7', '2021-01-26', NULL),
+(3, '', 'Siti Nursoleha', '3215142408740001', '1974', '3', '1', '7', '2021-01-26', NULL),
+(4, '', 'Siti Nursoleha', '3215142408740001', '1974', '3', '1', '7', '2021-01-26', NULL);
 
 -- --------------------------------------------------------
 
@@ -141,7 +148,34 @@ CREATE TABLE `data_periodik` (
 --
 
 INSERT INTO `data_periodik` (`id`, `nis`, `asal_sekolah`, `nomor_peserta_un`, `nomor_seri_ijazah`, `nomor_seri_skhun`, `tinggi_badan`, `berat_badan`, `hobi`, `cita_cita`, `jarak_rumah`, `waktu_tempuh`, `created_at`, `updated_at`) VALUES
-(1, '', 'MTsN JATISARI', '02-19-506-138-5', 'DN-349123', 'DD-178921', '170', '90', 'Rebahan', 'Jadi Sultan', '1', '30', '2021-01-20', NULL);
+(1, '', 'MTsN JATISARI', '02-19-506-138-5', 'DN-349123', 'DD-178921', '170', '90', 'Rebahan', 'Jadi Sultan', '1', '30', '2021-01-20', NULL),
+(2, '', 'MTsN JATISARI', '02-19-506-138-5', 'DN-349123', 'DD-178921', '170', '90', 'Rebahan', 'Jadi Sultan', '100', '12', '2021-01-26', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_upload`
+--
+
+CREATE TABLE `data_upload` (
+  `id` int(11) NOT NULL,
+  `nis` varchar(9) NOT NULL,
+  `file_ijazah` varchar(255) NOT NULL,
+  `file_skhun` varchar(255) NOT NULL,
+  `file_kk` varchar(255) NOT NULL,
+  `file_akte` varchar(255) NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `data_upload`
+--
+
+INSERT INTO `data_upload` (`id`, `nis`, `file_ijazah`, `file_skhun`, `file_kk`, `file_akte`, `created_at`, `updated_at`) VALUES
+(1, '', 'ijazah.jpg', 'skhu.jpg', 'KK 1.jpg', 'AKTE 1.jpg', '2021-01-26', NULL),
+(2, '', '121310473_ijazah.jpg', '121310473_skhun.jpg', '121310473_kk.jpg', '121310473_akte.jpg', '2021-01-26', NULL),
+(3, '', '121310473_ijazah.jpg', '121310473_skhun.jpg', '121310473_kk.jpg', 'default.jpg', '2021-01-26', NULL);
 
 -- --------------------------------------------------------
 
@@ -167,7 +201,8 @@ CREATE TABLE `data_wali` (
 --
 
 INSERT INTO `data_wali` (`id`, `nis`, `nama_wali`, `nik_wali`, `tahun_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`, `created_at`, `updated_at`) VALUES
-(1, '', 'Muhamad Ramdani Hidayatullah', '3215133001970001', '1997', '5', '6', '3', '2021-01-20', NULL);
+(1, '', 'Muhamad Ramdani Hidayatullah', '3215133001970001', '1997', '5', '6', '3', '2021-01-20', NULL),
+(2, '', 'Muhamad Ramdani Hidayatullah', '3215133001970001', '1997', '5', '6', '3', '2021-01-26', NULL);
 
 --
 -- Indexes for dumped tables
@@ -198,6 +233,12 @@ ALTER TABLE `data_periodik`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `data_upload`
+--
+ALTER TABLE `data_upload`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `data_wali`
 --
 ALTER TABLE `data_wali`
@@ -211,31 +252,37 @@ ALTER TABLE `data_wali`
 -- AUTO_INCREMENT untuk tabel `biodata_siswa`
 --
 ALTER TABLE `biodata_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_ayah`
 --
 ALTER TABLE `data_ayah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_ibu`
 --
 ALTER TABLE `data_ibu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_periodik`
 --
 ALTER TABLE `data_periodik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `data_upload`
+--
+ALTER TABLE `data_upload`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_wali`
 --
 ALTER TABLE `data_wali`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
