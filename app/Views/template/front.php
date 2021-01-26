@@ -58,6 +58,65 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     -->
+    <script>
+        // const fileUpload = new FileReader();
+
+        //Ijazah preview
+        function previewIjazah() {
+            const ijazah = document.querySelector('#ijazah');
+            const ijazahLabel = document.querySelector('.label-ijazah');
+            const imgIjazah = document.querySelector('.img-ijazah');
+
+            ijazahLabel.textContent = ijazah.files[0].name;
+            const fileIjazah = new FileReader();
+            fileIjazah.readAsDataURL(ijazah.files[0]);
+            fileIjazah.onload = function(e) {
+                imgIjazah.src = e.target.result;
+            }
+        }
+
+        //SKHUN Preview
+        function previewSkhun() {
+            const skhun = document.querySelector('#skhun');
+            const skhunLabel = document.querySelector('.label-skhun');
+            const imgskhun = document.querySelector('.img-skhun');
+
+            skhunLabel.textContent = skhun.files[0].name;
+            const fileskhun = new FileReader();
+            fileskhun.readAsDataURL(skhun.files[0]);
+            fileskhun.onload = function(e) {
+                imgskhun.src = e.target.result;
+            }
+        }
+
+        //KK Preview
+        function previewKk() {
+            const kk = document.querySelector('#kk');
+            const kkLabel = document.querySelector('.label-kk');
+            const imgkk = document.querySelector('.img-kk');
+
+            kkLabel.textContent = kk.files[0].name;
+            const filekk = new FileReader();
+            filekk.readAsDataURL(kk.files[0]);
+            filekk.onload = function(e) {
+                imgkk.src = e.target.result;
+            }
+        }
+
+        //Akte Preview
+        function previewAkte() {
+            const akte = document.querySelector('#akte');
+            const akteLabel = document.querySelector('.label-akte');
+            const imgakte = document.querySelector('.img-akte');
+
+            akteLabel.textContent = akte.files[0].name;
+            const fileakte = new FileReader();
+            fileakte.readAsDataURL(akte.files[0]);
+            fileakte.onload = function(e) {
+                imgakte.src = e.target.result;
+            }
+        }
+    </script>
 </body>
 
 </html>
