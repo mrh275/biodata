@@ -48,5 +48,6 @@ class BaseController extends Controller
 		$this->dataIbuModel = new \App\Models\DataibuModel();
 		$this->dataWaliModel = new \App\Models\DataWaliModel();
 		$this->dataPeriodikModel = new \App\Models\DataperiodikModel();
+		$this->dataUploadModel = new \App\Models\DatauploadModel();
 	}
 }
