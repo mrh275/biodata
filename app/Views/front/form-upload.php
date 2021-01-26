@@ -15,7 +15,7 @@
         </div>
 
         <form action="<?= base_url('/dataupload/add') ?>" class="form-group berkas-upload" method="post" enctype="multipart/form-data">
-
+            <?= csrf_field(); ?>
             <div class="row mt-4">
                 <dic class="col-lg-12">
                     <h4 class="data-periodik">DATA PERIODIK</h4>
@@ -26,14 +26,14 @@
                     <label for="file_ijazah">Upload Scan Ijazah SMP/MTs</label>
                 </div>
                 <div class="col-lg-6 custom-file">
-                    <input type="file" class="custom-file-input <?= ($validation->hasError('file_ijazah')) ? 'is-invalid' : '' ?>" name="file_ijazah" id="customFile">
+                    <input type="file" class="custom-file-input <?= ($validation->hasError('file_ijazah')) ? 'is-invalid' : '' ?>" name="file_ijazah" id="ijazah" onchange="previewIjazah()">
                     <div class="invalid-feedback">
                         <?= $validation->getError('file_ijazah') ?>
                     </div>
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    <label class="custom-file-label label-ijazah" for="ijazah">Choose file</label>
                 </div>
-                <div class="col-lg-3">
-                    <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="ijazah">
+                <div class="col-lg-2">
+                    <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-ijazah">
                 </div>
             </div>
             <hr>
@@ -42,14 +42,14 @@
                     <label for="file_skhun">Upload Scan SKHUN SMP/MTs</label>
                 </div>
                 <div class="col-lg-6 custom-file">
-                    <input type="file" class="custom-file-input <?= ($validation->hasError('file_skhun')) ? 'is-invalid' : '' ?>" name="file_skhun" id="customFile">
+                    <input type="file" class="custom-file-input <?= ($validation->hasError('file_skhun')) ? 'is-invalid' : '' ?>" name="file_skhun" id="skhun" onchange="previewSkhun()">
                     <div class="invalid-feedback">
                         <?= $validation->getError('file_skhun') ?>
                     </div>
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    <label class="custom-file-label label-skhun" for="skhun">Choose file</label>
                 </div>
-                <div class="col-lg-3">
-                    <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="ijazah">
+                <div class="col-lg-2">
+                    <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-skhun">
                 </div>
             </div>
             <hr>
@@ -58,14 +58,14 @@
                     <label for="file_kk">Upload Scan Kartu Keluarga (KK)</label>
                 </div>
                 <div class="col-lg-6 custom-file">
-                    <input type="file" class="custom-file-input <?= ($validation->hasError('file_kk')) ? 'is-invalid' : '' ?>" name="file_kk" id="customFile">
+                    <input type="file" class="custom-file-input <?= ($validation->hasError('file_kk')) ? 'is-invalid' : '' ?>" name="file_kk" id="kk" onchange="previewKk()">
                     <div class="invalid-feedback">
                         <?= $validation->getError('file_kk') ?>
                     </div>
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    <label class="custom-file-label label-kk" for="kk">Choose file</label>
                 </div>
-                <div class="col-lg-3">
-                    <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="ijazah">
+                <div class="col-lg-2">
+                    <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-kk">
                 </div>
             </div>
             <hr>
@@ -74,11 +74,11 @@
                     <label for="file_akte">Upload Scan Akta Kelahiran</label>
                 </div>
                 <div class="col-lg-6 custom-file">
-                    <input type="file" class="custom-file-input" name="file_akte" id="customFile">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    <input type="file" class="custom-file-input" name="file_akte" id="akte" onchange="previewAkte()">
+                    <label class="custom-file-label label-akte" for="akte">Choose file</label>
                 </div>
-                <div class="col-lg-3">
-                    <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="ijazah">
+                <div class="col-lg-2">
+                    <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-akte">
                 </div>
             </div>
 

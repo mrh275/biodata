@@ -15,10 +15,10 @@
         </div>
 
         <form action="<?= base_url('/dataibu/add') ?>" class="form-group" method="post">
-
+            <?= csrf_field(); ?>
             <div class="row mt-4">
                 <dic class="col-lg-12">
-                    <h4 class="data-ibu">DATA IBU KANDUNG</h4>
+                    <h4 class="data-ayah">DATA IBU KANDUNG</h4>
                 </dic>
             </div>
             <div class="row mt-3">
@@ -26,7 +26,10 @@
                     <label for="nama_ibu">Nama Lengkap Ibu</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" name="nama_ibu">
+                    <input type="text" class="form-control <?= ($validation->hasError('nama_ibu')) ? 'is-invalid' : '' ?>" name="nama_ibu" value="<?= old('nama_ibu') ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('nama_ibu') ?>
+                    </div>
                 </div>
             </div>
             <div class="row mt-3">
@@ -34,7 +37,10 @@
                     <label for="nik_ibu">NIK Ibu</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" name="nik_ibu">
+                    <input type="text" class="form-control <?= ($validation->hasError('nik_ibu')) ? 'is-invalid' : '' ?>" name="nik_ibu" value="<?= old('nik_ibu') ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('nik_ibu') ?>
+                    </div>
                 </div>
             </div>
             <div class="row mt-3">
@@ -42,7 +48,10 @@
                     <label for="tahun_lahir_ibu">Tahun Lahir Ibu</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" name="tahun_lahir_ibu">
+                    <input type="text" class="form-control <?= ($validation->hasError('tahun_lahir_ibu')) ? 'is-invalid' : '' ?>" name="tahun_lahir_ibu" value="<?= old('tahun_lahir_ibu') ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('tahun_lahir_ibu') ?>
+                    </div>
                 </div>
             </div>
             <div class="row mt-3">
@@ -50,7 +59,7 @@
                     <label for="pendidikan_ibu">Pendidikan Terakhir Ibu</label>
                 </div>
                 <div class="col-lg-8">
-                    <select name="pendidikan_ibu" id="pendidikan_ibu" class="form-control">
+                    <select name="pendidikan_ibu" id="pendidikan_ibu" class="form-control <?= ($validation->hasError('pendidikan_ibu')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
                         <option value="1">Tidak sekolah</option>
                         <option value="2">Putus SD</option>
@@ -64,6 +73,9 @@
                         <option value="10">Magister (S2)</option>
                         <option value="11">Doktor (S3)</option>
                     </select>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('pendidikan_ibu') ?>
+                    </div>
                 </div>
             </div>
             <div class="row mt-3">
@@ -71,7 +83,7 @@
                     <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
                 </div>
                 <div class="col-lg-8">
-                    <select name="pekerjaan_ibu" id="pekerjaan_ibu" class="form-control">
+                    <select name="pekerjaan_ibu" id="pekerjaan_ibu" class="form-control <?= ($validation->hasError('pekerjaan_ibu')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
                         <option value="1">Tidak bekerja</option>
                         <option value="2">Nelayan</option>
@@ -88,6 +100,9 @@
                         <option value="13">Meninggal Dunia</option>
                         <option value="99">Lainnya</option>
                     </select>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('pekerjaan_ibu') ?>
+                    </div>
                 </div>
             </div>
             <div class="row mt-3">
@@ -95,7 +110,7 @@
                     <label for="penghasilan_ibu">Penghasilan Bulanan Ibu</label>
                 </div>
                 <div class="col-lg-8">
-                    <select name="penghasilan_ibu" id="penghasilan_ibu" class="form-control">
+                    <select name="penghasilan_ibu" id="penghasilan_ibu" class="form-control <?= ($validation->hasError('penghasilan_ibu')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
                         <option value="1">Kurang dari 500.000</option>
                         <option value="2">500.000 s/d 999.999</option>
@@ -105,6 +120,9 @@
                         <option value="6">Lebih dari 20 juta</option>
                         <option value="7">Tidak Berpenghasilan</option>
                     </select>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('penghasilan_ibu') ?>
+                    </div>
                 </div>
             </div>
 
