@@ -57,6 +57,9 @@ class Dataupload extends BaseController
             return redirect()->to('/dataupload')->withInput();
         }
 
+        $nis    = session()->get('nis');
+        $kelas  = session()->get('kelas');
+
         //Ambil gambar upload
         $file_ijazah    = $this->request->getFile('file_ijazah');
         $file_skhun     = $this->request->getFile('file_skhun');
@@ -73,23 +76,23 @@ class Dataupload extends BaseController
         if ($file_akte->getError() == 4) {
             $namaBaru_akte      = 'default.jpg';
         } else {
-            $namaBaru_akte      = '121310473' . '_' . 'akte.' . $ext_akte;
-            $file_akte->move('asset/img/akte', $namaBaru_akte);
+            $namaBaru_akte      = $nis . '_' . 'akte.' . $ext_akte;
+            $file_akte->move('asset/img/akte/' . $kelas, $namaBaru_akte);
         }
 
         //Rubah nama file
-        $namaBaru_ijazah    = '121310473' . '_' . 'ijazah.' . $ext_ijazah;
-        $namaBaru_skhun     = '121310473' . '_' . 'skhun.' . $ext_skhun;
-        $namaBaru_kk        = '121310473' . '_' . 'kk.' . $ext_kk;
+        $namaBaru_ijazah    = $nis . '_' . 'ijazah.' . $ext_ijazah;
+        $namaBaru_skhun     = $nis . '_' . 'skhun.' . $ext_skhun;
+        $namaBaru_kk        = $nis . '_' . 'kk.' . $ext_kk;
 
         //Pindahkan file ke folder masing2 file
-        $file_ijazah->move('asset/img/ijazah', $namaBaru_ijazah);
-        $file_skhun->move('asset/img/skhun', $namaBaru_skhun);
-        $file_kk->move('asset/img/kk', $namaBaru_kk);
+        $file_ijazah->move('asset/img/ijazah/' . $kelas, $namaBaru_ijazah);
+        $file_skhun->move('asset/img/skhun/' . $kelas, $namaBaru_skhun);
+        $file_kk->move('asset/img/kk/' . $kelas, $namaBaru_kk);
 
 
         $data = [
-            'nis'           => '',
+            'nis'           => $nis,
             'file_ijazah'   => $namaBaru_ijazah,
             'file_skhun'    => $namaBaru_skhun,
             'file_kk'       => $namaBaru_kk,
@@ -99,7 +102,7 @@ class Dataupload extends BaseController
 
         $this->dataUploadModel->add($data);
 
-        return redirect()->to('/programkesejahteraan');
+        return redirect()->to('/program_kesejahteraan');
     }
 
     //--------------------------------------------------------------------
