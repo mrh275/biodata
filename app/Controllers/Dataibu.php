@@ -64,6 +64,7 @@ class Dataibu extends BaseController
         }
 
         $data = [
+            'nis'               => session()->get('nis'),
             'nama_ibu'         => $this->request->getVar('nama_ibu'),
             'nik_ibu'          => $this->request->getVar('nik_ibu'),
             'tahun_lahir_ibu'  => $this->request->getVar('tahun_lahir_ibu'),
@@ -76,7 +77,7 @@ class Dataibu extends BaseController
         $this->dataIbuModel->add($data);
 
         $alm = session()->get('alm');
-        if ($alm == 1) {
+        if ($alm == 13) {
             return redirect()->to('/datawali');
         } else {
             return redirect()->to('/dataperiodik');
