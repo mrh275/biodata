@@ -90,6 +90,7 @@ class Dataperiodik extends BaseController
         }
 
         $data = [
+            'nis'               => session()->get('nis'),
             'asal_sekolah'       => $this->request->getVar('asal_sekolah'),
             'nomor_peserta_un'   => $this->request->getVar('nopes_un'),
             'nomor_seri_ijazah'  => $this->request->getVar('no_ijazah'),
