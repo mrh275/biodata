@@ -33,6 +33,10 @@ section form.berkas-upload hr {
   opacity: 0.5;
 }
 
+section h2.finish {
+  margin-bottom: 7rem !important;
+}
+
 footer.container-fluid {
   color: #fff;
 }
@@ -67,6 +71,18 @@ footer.container-fluid .foot .fa-heart {
   }
 }
 
+@media (max-width: 767px) {
+  footer div.row div.col-lg-6 {
+    text-align: center !important;
+  }
+  footer div.row div.foot-up {
+    margin-bottom: 0.2rem !important;
+  }
+  footer div.row div.foot {
+    margin-top: 0.2rem !important;
+  }
+}
+
 @media (max-width: 470px) {
   header .col-lg-1,
   .col-lg-11 {
@@ -83,6 +99,15 @@ footer.container-fluid .foot .fa-heart {
   }
   header .col-lg-11 h2.brand {
     font-size: 6vw;
+  }
+  footer div.row div.col-lg-6 {
+    text-align: center !important;
+  }
+  footer div.row div.foot-up {
+    margin-bottom: 0.2rem !important;
+  }
+  footer div.row div.foot {
+    margin-top: 0.2rem !important;
   }
 }
 /*# sourceMappingURL=style.css.map */
