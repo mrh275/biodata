@@ -8,4 +8,4 @@ Dengan CMS ini, pengumpulan data dapat dilakukan secara daring dan tanpa harus k
 
 Aplikasi ini masih dalam tahap pengembangan, jadi belum sempurna dan masih banyak fitur yang belum dibuat dan berfungsi sebagaimana mestinya.
 
-Developed by Muhamad Ramdani Hidayatullah
+## Developed by Muhamad Ramdani Hidayatullah
