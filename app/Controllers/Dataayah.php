@@ -7,7 +7,7 @@ class Dataayah extends BaseController
     public function index()
     {
         $data  = [
-            'validation'    => \Config\Services::validation()
+            'validation'    => \Config\Services::validation(),
         ];
 
         return view('front/form-ayah', $data);
@@ -64,6 +64,7 @@ class Dataayah extends BaseController
         }
 
         $data = [
+            'nis'               => session()->get('nis'),
             'nama_ayah'         => $this->request->getVar('nama_ayah'),
             'nik_ayah'          => $this->request->getVar('nik_ayah'),
             'tahun_lahir_ayah'  => $this->request->getVar('tahun_lahir_ayah'),
@@ -72,8 +73,11 @@ class Dataayah extends BaseController
             'penghasilan_ayah'  => $this->request->getVar('penghasilan_ayah'),
             'created_at'        => date('Y-m-d'),
         ];
-        $alm = 0;
-        session()->set('alm', $alm);
+
+        if ($data['pekerjaan_ayah'] == 13) {
+            $alm = $data['pekerjaan_ayah'];
+            session()->set('alm', $alm);
+        }
 
 
         $this->dataAyahModel->add($data);
