@@ -54,19 +54,19 @@
                 <div class="col-lg-8">
                     <select name="kelas" id="kelas" class="form-control <?= ($validation->hasError('kelas')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
-                        <option value="10 IPA 1">10 IPA 1</option>
-                        <option value="10 IPA 2">10 IPA 2</option>
-                        <option value="10 IPA 3">10 IPA 3</option>
-                        <option value="10 IPS 1">10 IPS 1</option>
-                        <option value="10 IPS 2">10 IPS 2</option>
-                        <option value="11 IPA 1">11 IPA 1</option>
-                        <option value="11 IPA 2">11 IPA 2</option>
-                        <option value="11 IPS 1">11 IPS 1</option>
-                        <option value="11 IPS 2">11 IPS 2</option>
-                        <option value="12 IPA 1">12 IPA 1</option>
-                        <option value="12 IPA 2">12 IPA 2</option>
-                        <option value="12 IPS 1">12 IPS 1</option>
-                        <option value="12 SMATER 1">12 SMATER 1</option>
+                        <option value="10-ipa-1">10 IPA 1</option>
+                        <option value="10-ipa-2">10 IPA 2</option>
+                        <option value="10-ipa-3">10 IPA 3</option>
+                        <option value="10-ips-1">10 IPS 1</option>
+                        <option value="10-ips-2">10 IPS 2</option>
+                        <option value="11-ipa-1">11 IPA 1</option>
+                        <option value="11-ipa-2">11 IPA 2</option>
+                        <option value="11-ips-1">11 IPS 1</option>
+                        <option value="11-ips-2">11 IPS 2</option>
+                        <option value="12-ipa-1">12 IPA 1</option>
+                        <option value="12-ipa-2">12 IPA 2</option>
+                        <option value="12-ips-1">12 IPS 1</option>
+                        <option value="12-smater-1">12 SMATER 1</option>
                     </select>
                     <div class="invalid-feedback">
                         <?= $validation->getError('kelas') ?>
