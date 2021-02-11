@@ -15,6 +15,8 @@ class Biodata extends BaseController
 
     public function add()
     {
+        $this->db      = \Config\Database::connect();
+
         if (!$this->validate([
             'nama'    => [
                 'rules' => 'required[nama]',
@@ -161,6 +163,12 @@ class Biodata extends BaseController
             return redirect()->to('/biodata')->withInput()->with('validation', $validation);
         }
 
+        $dataNis = $this->request->getVar('nis');
+
+        $queryNis = $this->biodataModel->where(['nis' => $dataNis])->first();
+        if ($queryNis['nis'] == $dataNis) {
+        }
+
         $data = [
             'nama'              => $this->request->getVar('nama'),
             'jenis_kelamin'     => $this->request->getVar('jk'),
@@ -185,6 +193,13 @@ class Biodata extends BaseController
             'transportasi'      => $this->request->getVar('transportasi'),
             'created_at'        => date('Y-m-d')
         ];
+
+        $sesi = [
+            'nis'   => $this->request->getVar('nis'),
+            'kelas' => $this->request->getVar('kelas'),
+        ];
+
+        session()->set($sesi);
 
         $this->biodataModel->add($data);
 
