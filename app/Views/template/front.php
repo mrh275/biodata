@@ -10,6 +10,7 @@
     <link href="<?= base_url('/asset/bootstrap') ?>/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url('/asset') ?>/css/style.css" rel="stylesheet">
     <link href="<?= base_url('/asset') ?>/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="shortcut icon" href="<?= base_url('/asset/img') ?>/favicon.ico" type="image/x-icon">
 
     <title>Portal Biodata Siswa SMAN 1 Rawamerta</title>
 </head>
@@ -114,6 +115,48 @@
             fileakte.readAsDataURL(akte.files[0]);
             fileakte.onload = function(e) {
                 imgakte.src = e.target.result;
+            }
+        }
+
+        //KIP Preview
+        function previewKip() {
+            const kip = document.querySelector('#kip');
+            const kipLabel = document.querySelector('.label-kip');
+            const imgkip = document.querySelector('.img-kip');
+
+            kipLabel.textContent = kip.files[0].name;
+            const filekip = new FileReader();
+            filekip.readAsDataURL(kip.files[0]);
+            filekip.onload = function(e) {
+                imgkip.src = e.target.result;
+            }
+        }
+
+        //KIS Preview
+        function previewKis() {
+            const kis = document.querySelector('#kis');
+            const kisLabel = document.querySelector('.label-kis');
+            const imgkis = document.querySelector('.img-kis');
+
+            kisLabel.textContent = kis.files[0].name;
+            const filekis = new FileReader();
+            filekis.readAsDataURL(kis.files[0]);
+            filekis.onload = function(e) {
+                imgkis.src = e.target.result;
+            }
+        }
+
+        //PKH Preview
+        function previewPkh() {
+            const pkh = document.querySelector('#pkh');
+            const pkhLabel = document.querySelector('.label-pkh');
+            const imgpkh = document.querySelector('.img-pkh');
+
+            pkhLabel.textContent = pkh.files[0].name;
+            const filepkh = new FileReader();
+            filepkh.readAsDataURL(pkh.files[0]);
+            filepkh.onload = function(e) {
+                imgpkh.src = e.target.result;
             }
         }
     </script>
