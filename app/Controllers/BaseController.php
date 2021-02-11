@@ -16,6 +16,7 @@ namespace App\Controllers;
  */
 
 use CodeIgniter\Controller;
+use ZipArchive;
 
 class BaseController extends Controller
 {
@@ -49,5 +50,8 @@ class BaseController extends Controller
 		$this->dataWaliModel = new \App\Models\DataWaliModel();
 		$this->dataPeriodikModel = new \App\Models\DataperiodikModel();
 		$this->dataUploadModel = new \App\Models\DatauploadModel();
+		$this->dataProgramKesejahteraanModel = new \App\Models\DataprogramkesejahteraanModel();
+
+		$this->zipFile = new \PhpZip\ZipFile();
 	}
 }
