@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="<?= base_url('/asset/bootstrap') ?>/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url('/asset/bootstrap') ?>/css/bootstrap.css" rel="stylesheet">
     <link href="<?= base_url('/asset') ?>/css/style.css" rel="stylesheet">
     <link href="<?= base_url('/asset') ?>/fontawesome/css/all.css" rel="stylesheet">
     <link rel="shortcut icon" href="<?= base_url('/asset/img') ?>/favicon.ico" type="image/x-icon">
@@ -50,7 +50,8 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="<?= base_url('/asset/bootstrap') ?>/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('/asset') ?>/js/popper.min.js"></script>
+    <script src="<?= base_url('/asset/bootstrap') ?>/js/bootstrap.js"></script>
     <script src="<?= base_url('/asset') ?>/js/jquery.min.js"></script>
     <script src="<?= base_url('/asset') ?>/fontawesome/js/all.js"></script>
 
@@ -61,6 +62,8 @@
     -->
     <script>
         // const fileUpload = new FileReader();
+
+        document.querySelector('.alert').alert();
 
         //Ijazah preview
         function previewIjazah() {
