@@ -17,9 +17,20 @@
         <form action="<?= base_url('/biodata/add') ?>" class="form-group" method="post">
             <?= csrf_field(); ?>
             <div class="row mt-4">
-                <dic class="col-lg-12">
+                <div class="col-lg-12">
                     <h4 class="biodata-siswa">BIODATA SISWA</h4>
-                </dic>
+                </div>
+            </div>
+            <?php $session = \Config\Services::session(); ?>
+            <div class="row">
+                <div class="col-lg-11">
+                    <?= ($session->getFlashdata('nis_ada') == TRUE) ? '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    ' . $session->getFlashdata('nis_ada') . '
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>' : '' ?>
+                </div>
             </div>
             <div class="row mt-3">
                 <div class="col-lg-3 d-flex align-items-center">
@@ -39,8 +50,9 @@
                 <div class="col-lg-8">
                     <select name="jk" id="jk" class="form-control <?= ($validation->hasError('jk')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
-                        <option value="L">Laki - laki</option>
-                        <option value="P">Perempuan</option>
+                        <?php foreach ($jenis_kelamin as $jk) : ?>
+                            <option value="<?= $jk['inisial'] ?>"><?= $jk['keterangan'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <div class="invalid-feedback">
                         <?= $validation->getError('jk') ?>
@@ -54,19 +66,9 @@
                 <div class="col-lg-8">
                     <select name="kelas" id="kelas" class="form-control <?= ($validation->hasError('kelas')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
-                        <option value="10-ipa-1">10 IPA 1</option>
-                        <option value="10-ipa-2">10 IPA 2</option>
-                        <option value="10-ipa-3">10 IPA 3</option>
-                        <option value="10-ips-1">10 IPS 1</option>
-                        <option value="10-ips-2">10 IPS 2</option>
-                        <option value="11-ipa-1">11 IPA 1</option>
-                        <option value="11-ipa-2">11 IPA 2</option>
-                        <option value="11-ips-1">11 IPS 1</option>
-                        <option value="11-ips-2">11 IPS 2</option>
-                        <option value="12-ipa-1">12 IPA 1</option>
-                        <option value="12-ipa-2">12 IPA 2</option>
-                        <option value="12-ips-1">12 IPS 1</option>
-                        <option value="12-smater-1">12 SMATER 1</option>
+                        <?php foreach ($kelas as $class) : ?>
+                            <option value="<?= $class['kelas'] ?>"><?= $class['keterangan'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <div class="invalid-feedback">
                         <?= $validation->getError('kelas') ?>
@@ -168,13 +170,9 @@
                 <div class="col-lg-8">
                     <select name="agama" id="agama" class="form-control  <?= ($validation->hasError('agama')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
-                        <option value="1">Islam</option>
-                        <option value="2">Kristen/Protestan</option>
-                        <option value="3">Katholik</option>
-                        <option value="4">Hindu</option>
-                        <option value="5">Budha</option>
-                        <option value="6">Khong Hu Chu</option>
-                        <option value="99">Lainnya</option>
+                        <?php foreach ($agama as $a) : ?>
+                            <option value="<?= $a['nomor_kode'] ?>"><?= $a['nama_agama'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <div class="invalid-feedback">
                         <?= $validation->getError('agama') ?>
@@ -259,13 +257,9 @@
                 <div class="col-lg-8">
                     <select name="tinggal" id="tinggal" class="form-control <?= ($validation->hasError('tinggal')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
-                        <option value="1">Bersama Orang Tua</option>
-                        <option value="2">Wali</option>
-                        <option value="3">Kos</option>
-                        <option value="4">Asrama</option>
-                        <option value="5">Panti Asuhan</option>
-                        <option value="6">Pesantren</option>
-                        <option value="99">Lainnya</option>
+                        <?php foreach ($tempat_tinggal as $tinggal) : ?>
+                            <option value="<?= $tinggal['nomor_kode'] ?>"><?= $tinggal['tempat_tinggal'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <div class="invalid-feedback">
                         <?= $validation->getError('tinggal') ?>
@@ -279,13 +273,9 @@
                 <div class="col-lg-8">
                     <select name="transportasi" id="transportasi" class="form-control <?= ($validation->hasError('transportasi')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
-                        <option value="1">Jalan kaki</option>
-                        <option value="2">Kendaraan Pribadi</option>
-                        <option value="3">Kendaraan Umum/angkot/pete - pete</option>
-                        <option value="4">Jemputan Sekolah</option>
-                        <option value="5">Kereta Api</option>
-                        <option value="6">Andong/Bendi/Sado/Dokar/Delman/Beca</option>
-                        <option value="99">Lainnya</option>
+                        <?php foreach ($transportasi as $t) : ?>
+                            <option value="<?= $t['nomor_kode'] ?>"><?= $t['transportasi'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <div class="invalid-feedback">
                         <?= $validation->getError('transportasi') ?>

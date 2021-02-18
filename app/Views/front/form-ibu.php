@@ -61,17 +61,9 @@
                 <div class="col-lg-8">
                     <select name="pendidikan_ibu" id="pendidikan_ibu" class="form-control <?= ($validation->hasError('pendidikan_ibu')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
-                        <option value="1">Tidak sekolah</option>
-                        <option value="2">Putus SD</option>
-                        <option value="3">SD Sederajat</option>
-                        <option value="4">SMP Sederajat</option>
-                        <option value="5">SMA Sederajat</option>
-                        <option value="6">Diploma 1 (D1)</option>
-                        <option value="7">Diploma 2 (D2)</option>
-                        <option value="8">Diploma 3 (D3)</option>
-                        <option value="9">Sarjana (S1)/Diploma 4 (D4)</option>
-                        <option value="10">Magister (S2)</option>
-                        <option value="11">Doktor (S3)</option>
+                        <?php foreach ($pendidikan as $p) : ?>
+                            <option value="<?= $p['nomor_kode'] ?>"><?= $p['pendidikan'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <div class="invalid-feedback">
                         <?= $validation->getError('pendidikan_ibu') ?>
@@ -85,20 +77,9 @@
                 <div class="col-lg-8">
                     <select name="pekerjaan_ibu" id="pekerjaan_ibu" class="form-control <?= ($validation->hasError('pekerjaan_ibu')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
-                        <option value="1">Tidak bekerja</option>
-                        <option value="2">Nelayan</option>
-                        <option value="3">Petani</option>
-                        <option value="4">Peternak</option>
-                        <option value="5">PNS/TNI/POLRI</option>
-                        <option value="6">Karyawan Swasta</option>
-                        <option value="7">Pedagang Kecil</option>
-                        <option value="8">Pedagang Besar</option>
-                        <option value="9">Wiraswasta</option>
-                        <option value="10">Wirausaha</option>
-                        <option value="11">Buruh</option>
-                        <option value="12">Pensiunan</option>
-                        <option value="13">Meninggal Dunia</option>
-                        <option value="99">Lainnya</option>
+                        <?php foreach ($pekerjaan as $job) : ?>
+                            <option value="<?= $job['nomor_kode'] ?>"><?= $job['pekerjaan'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <div class="invalid-feedback">
                         <?= $validation->getError('pekerjaan_ibu') ?>
@@ -112,13 +93,9 @@
                 <div class="col-lg-8">
                     <select name="penghasilan_ibu" id="penghasilan_ibu" class="form-control <?= ($validation->hasError('penghasilan_ibu')) ? 'is-invalid' : '' ?>">
                         <option value="">Pilih :</option>
-                        <option value="1">Kurang dari 500.000</option>
-                        <option value="2">500.000 s/d 999.999</option>
-                        <option value="3">1 juta s/d 1.999.999</option>
-                        <option value="4">2 juta s/d 4.999.999</option>
-                        <option value="5">5 juta s/d 20 juta</option>
-                        <option value="6">Lebih dari 20 juta</option>
-                        <option value="7">Tidak Berpenghasilan</option>
+                        <?php foreach ($penghasilan as $income) : ?>
+                            <option value="<?= $income['nomor_kode'] ?>"><?= $income['penghasilan'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <div class="invalid-feedback">
                         <?= $validation->getError('penghasilan_ibu') ?>
