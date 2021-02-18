@@ -6,8 +6,15 @@ class Datawali extends BaseController
 {
     public function index()
     {
+        if (session()->get('nis') == FALSE) {
+            return redirect()->to('/biodata');
+        }
+
         $data  = [
-            'validation'    => \Config\Services::validation()
+            'validation'    => \Config\Services::validation(),
+            'pendidikan'    => $this->dataIbuModel->getPendidikan(),
+            'pekerjaan'     => $this->dataIbuModel->getPekerjaan(),
+            'penghasilan'   => $this->dataIbuModel->getPenghasilan()
         ];
 
         return view('front/form-wali', $data);

@@ -7,7 +7,12 @@ class Biodata extends BaseController
     public function index()
     {
         $data  = [
-            'validation'    => \Config\Services::validation()
+            'validation'        => \Config\Services::validation(),
+            'jenis_kelamin'     => $this->biodataModel->getJK(),
+            'kelas'             => $this->biodataModel->getKelas(),
+            'agama'             => $this->biodataModel->getAgama(),
+            'tempat_tinggal'    => $this->biodataModel->getTinggal(),
+            'transportasi'      => $this->biodataModel->getTransportasi(),
         ];
 
         return view('front/home', $data);
@@ -16,6 +21,12 @@ class Biodata extends BaseController
     public function add()
     {
         $this->db      = \Config\Database::connect();
+        $dataNis = $this->request->getVar('nis');
+
+        if ($this->biodataModel->where(['nis' => $dataNis])->first() == TRUE) {
+            session()->setFlashdata('nis_ada', '<strong>NIS sudah ada!</strong> Silahkan masukan NIS lain. Jika ingin mengubah data, silahkan hubungi admin.');
+            return redirect()->to('/biodata')->withInput();
+        }
 
         if (!$this->validate([
             'nama'    => [
@@ -161,12 +172,6 @@ class Biodata extends BaseController
         ])) {
             $validation = \Config\Services::validation();
             return redirect()->to('/biodata')->withInput()->with('validation', $validation);
-        }
-
-        $dataNis = $this->request->getVar('nis');
-
-        $queryNis = $this->biodataModel->where(['nis' => $dataNis])->first();
-        if ($queryNis['nis'] == $dataNis) {
         }
 
         $data = [
