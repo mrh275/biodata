@@ -6,6 +6,14 @@ class Dataperiodik extends BaseController
 {
     public function index()
     {
+        if (session()->get('alm') == FALSE) {
+            return redirect()->to('/dataayah');
+        }
+
+        if (session()->get('nis') == FALSE) {
+            return redirect()->to('/biodata');
+        }
+
         $data  = [
             'validation'    => \Config\Services::validation()
         ];
