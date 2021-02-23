@@ -8,8 +8,25 @@ h2.brand {
 }
 
 section {
-  h3 {
+  span.mini {
+    font-size: 1.8rem;
+    font-weight: 350;
+    position: relative;
+    top: 10vh;
+    color: #8c8c8c;
+  }
+  span.vr {
+    position: absolute;
+    top: 11vh;
+    border-left: 2px solid #8c8c8c;
+    height: 32px;
+  }
+  span.login {
+    font-size: 1.8rem;
     font-weight: 650;
+    position: relative;
+    top: 10vh;
+    margin-left: 5px;
   }
   a.formulir {
     text-decoration: none;
@@ -31,8 +48,36 @@ section {
       opacity: 0.5;
     }
   }
-  h2.finish {
-    margin-bottom: 7rem !important;
+  div.form-login {
+    margin: auto;
+    div.card {
+      position: relative;
+      top: 10vh;
+      box-shadow: 5px 10px 10px darkgrey;
+
+      div.card-header {
+        border: none;
+
+        span.login-header {
+          font-size: 1.5rem;
+          font-weight: 650;
+          color: #343a40;
+        }
+      }
+      div.card-body {
+        border: none;
+        padding-bottom: 1px !important;
+
+        div.input-group {
+          span.show-password {
+            cursor: pointer;
+          }
+        }
+      }
+      div.card-footer {
+        border: none;
+      }
+    }
   }
 }
 
@@ -44,6 +89,11 @@ footer.container-fluid {
       color: red;
     }
   }
+}
+
+footer.login {
+  position: absolute !important;
+  bottom: 0;
 }
 
 @media (max-width: 991px) {
@@ -81,6 +131,15 @@ footer.container-fluid {
         margin-top: 0.2rem !important;
       }
     }
+  }
+  section {
+    div.card {
+      margin-bottom: 12vh;
+    }
+  }
+  footer.login {
+    position: relative !important;
+    bottom: 0;
   }
 }
 

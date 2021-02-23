@@ -7,8 +7,27 @@ h2.brand {
   padding-top: 9px;
 }
 
-section h3 {
+section span.mini {
+  font-size: 1.8rem;
+  font-weight: 350;
+  position: relative;
+  top: 10vh;
+  color: #8c8c8c;
+}
+
+section span.vr {
+  position: absolute;
+  top: 11vh;
+  border-left: 2px solid #8c8c8c;
+  height: 32px;
+}
+
+section span.login {
+  font-size: 1.8rem;
   font-weight: 650;
+  position: relative;
+  top: 10vh;
+  margin-left: 5px;
 }
 
 section a.formulir {
@@ -33,8 +52,38 @@ section form.berkas-upload hr {
   opacity: 0.5;
 }
 
-section h2.finish {
-  margin-bottom: 7rem !important;
+section div.form-login {
+  margin: auto;
+}
+
+section div.form-login div.card {
+  position: relative;
+  top: 10vh;
+  -webkit-box-shadow: 5px 10px 10px darkgrey;
+          box-shadow: 5px 10px 10px darkgrey;
+}
+
+section div.form-login div.card div.card-header {
+  border: none;
+}
+
+section div.form-login div.card div.card-header span.login-header {
+  font-size: 1.5rem;
+  font-weight: 650;
+  color: #343a40;
+}
+
+section div.form-login div.card div.card-body {
+  border: none;
+  padding-bottom: 1px !important;
+}
+
+section div.form-login div.card div.card-body div.input-group span.show-password {
+  cursor: pointer;
+}
+
+section div.form-login div.card div.card-footer {
+  border: none;
 }
 
 footer.container-fluid {
@@ -47,6 +96,11 @@ footer.container-fluid .foot {
 
 footer.container-fluid .foot .fa-heart {
   color: red;
+}
+
+footer.login {
+  position: absolute !important;
+  bottom: 0;
 }
 
 @media (max-width: 991px) {
@@ -80,6 +134,13 @@ footer.container-fluid .foot .fa-heart {
   }
   footer div.row div.foot {
     margin-top: 0.2rem !important;
+  }
+  section div.card {
+    margin-bottom: 12vh;
+  }
+  footer.login {
+    position: relative !important;
+    bottom: 0;
   }
 }
 
