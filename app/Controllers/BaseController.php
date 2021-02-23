@@ -28,7 +28,7 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = [];
+	protected $helpers = ['form', 'url'];
 
 	/**
 	 * Constructor.
@@ -51,6 +51,8 @@ class BaseController extends Controller
 		$this->dataPeriodikModel = new \App\Models\DataperiodikModel();
 		$this->dataUploadModel = new \App\Models\DatauploadModel();
 		$this->dataProgramKesejahteraanModel = new \App\Models\DataprogramkesejahteraanModel();
+		$this->adminModel = new \App\Models\AdminModel();
+		$this->menuModel = new \App\Models\MenuModel();
 
 		$this->zipFile = new \PhpZip\ZipFile();
 	}
