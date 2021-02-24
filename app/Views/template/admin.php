@@ -48,8 +48,8 @@
     <!-- DataTables -->
     <script src="<?= base_url('/asset/admin') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="<?= base_url('/asset/admin') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <!-- <script src="<?= base_url('/asset/admin') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?= base_url('/asset/admin') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script> -->
+    <!-- <script src="<?= base_url('/asset/admin') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script> -->
+    <!-- <script src="<?= base_url('/asset/admin') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script> -->
     <!-- ChartJS -->
     <script src="<?= base_url('/asset/admin') ?>/plugins/chart.js/Chart.min.js"></script>
     <!-- Sparkline -->
