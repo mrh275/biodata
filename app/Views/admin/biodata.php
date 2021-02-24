@@ -31,8 +31,8 @@
                     <div class="card">
                         <div class="card-header">
                             <a href="<?= base_url('/biodata/tambahsiswa') ?>" class="btn btn-primary tambahsiswa"><i class="fas fa-plus-circle"></i> Tambah Siswa</a>
-                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i> Edit</button>
-                            <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+                            <button type="button" class="btn btn-success btn-edit" onclick="editsiswa()"><i class="fas fa-edit"></i> Edit</button>
+                            <button type="button" class="btn btn-danger" onclick="hapussiswa()"><i class="fas fa-trash"></i> Hapus</button>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -61,7 +61,7 @@
     </div>
 </footer>
 
-<div class="tambahsiswaModal" style="display: none;">
+<div class="siswaModal" style="display: none;">
 
 </div>
 <!-- Control Sidebar -->
@@ -86,6 +86,77 @@
         });
     }
 
+    function editsiswa() {
+        var siswa = $('#datasiswa tbody tr.selected');
+        if (siswa.length > 0) {
+            var nis = $('#datasiswa tbody tr.selected input#nis').val();
+            $.ajax({
+                type: "post",
+                url: "<?= base_url('biodata/editsiswa') ?>",
+                data: {
+                    nis: nis
+                },
+                dataType: "json",
+                success: function(response) {
+
+                    $('.siswaModal').html(response.data).show();
+                    $('#editsiswaModal').modal('show');
+
+                },
+                error: function(xhr, ajaxOption, thrownError) {
+                    alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+                }
+            });
+        } else {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Warning',
+                text: 'Silahkan pilih siswa terlebih dahulu!'
+            });
+        }
+    }
+
+    function hapussiswa() {
+        var siswa = $('#datasiswa tbody tr.selected');
+        if (siswa.length > 0) {
+            var nis = $('#datasiswa tbody tr.selected input#nis').val();
+            var nama = $('#datasiswa tbody tr.selected td:eq(1)').text();
+            Swal.fire({
+                title: `Anda ingin menghapus siswa bernama ${nama}?`,
+                text: "Data yang anda hapus tidak akan dapat dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Tidak',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "post",
+                        url: "<?= base_url('biodata/hapussiswa') ?>",
+                        data: {
+                            nis: nis
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Data telah dihapus.',
+                                text: response.sukses,
+                            });
+                            datasiswa();
+
+                        },
+                        error: function(xhr, ajaxOption, thrownError) {
+                            alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+                        }
+                    });
+                }
+            })
+        }
+    }
+
     $(document).ready(function() {
         //Jalankan fungsi ambil data siswa
         datasiswa();
@@ -97,7 +168,7 @@
                 url: "<?= site_url('biodata/tambahsiswa') ?>",
                 dataType: "json",
                 success: function(response) {
-                    $('.tambahsiswaModal').html(response.data).show();
+                    $('.siswaModal').html(response.data).show();
 
                     $('#tambahsiswaModal').modal('show');
                 },
