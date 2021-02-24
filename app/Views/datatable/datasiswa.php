@@ -20,10 +20,11 @@
             $nomor++;
         ?>
             <tr style="cursor:pointer;">
+                <input type="hidden" name="nis" id="nis" value="<?= $siswa['nis'] ?>">
                 <td><?= $nomor ?></td>
                 <td><?= $siswa['nama'] ?></td>
                 <td><?= $siswa['nisn'] ?></td>
-                <td><?= $siswa['nis'] ?></td>
+                <td id="nis"><?= $siswa['nis'] ?></td>
                 <td><?= $siswa['nik'] ?></td>
                 <?php if ($siswa['jenis_kelamin'] == "L") : ?>
                     <td>Laki - laki</td>
@@ -42,7 +43,7 @@
 <script>
     //Datatable Datasiswa
     $(document).ready(function() {
-        $("#datasiswa").DataTable({
+        var table = $("#datasiswa").DataTable({
             "scrollX": true,
             "scrollY": true,
             "columnDefs": [{
@@ -55,5 +56,22 @@
                 }
             ],
         });
+
+        //Fungsi seleksi row table
+        $('#datasiswa tbody').on('click', 'tr', function() {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            } else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected')
+            }
+            // if ($(this).hasClass('selected')) {
+            //     var nis = $('tr.selected input#nis').val();
+            //     console.log(nis);
+            //     // $('button.btn-edit').attr('id', nis);
+            // }
+        });
+
+
     });
 </script>
