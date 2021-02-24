@@ -39,4 +39,19 @@ class BiodataModel extends Model
     {
         return $this->db->table('transportasi')->get()->getResultArray();
     }
+
+    public function getSiswaByNis($nis)
+    {
+        return $this->db->table('biodata_siswa')->where(['nis' => $nis])->get()->getRowArray();
+    }
+
+    public function updateDataSiswa($nis, $data)
+    {
+        $this->db->table('biodata_siswa')->where(['nis' => $nis])->update($data);
+    }
+
+    public function hapusSiswaByNis($nis)
+    {
+        $this->db->table('biodata_siswa')->where(['nis' => $nis])->delete();
+    }
 }
