@@ -8,6 +8,7 @@
                 </button>
             </div>
             <?= form_open('biodata/simpansiswa', ['class' => 'formtambahsiswa']) ?>
+            <?= csrf_field(); ?>
             <div class="modal-body">
                 <div class="row mt-3">
                     <div class="col-lg-3 d-flex align-items-center">
