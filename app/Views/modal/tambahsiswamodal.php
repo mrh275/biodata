@@ -319,11 +319,11 @@
                         }
 
                         if (response.error.nis) {
-                            $("#nis").addClass('is-invalid');
-                            $('.errorNis').html(response.error.nis);
+                            $("input#nis").addClass('is-invalid');
+                            $('div.errorNis').html(response.error.nis);
                         } else {
-                            $('#nis').removeClass('is-invalid');
-                            $('.errorNis').html('');
+                            $('input#nis').removeClass('is-invalid');
+                            $('div.errorNis').html('');
                         }
 
                         if (response.error.nisn) {
@@ -468,7 +468,7 @@
                             text: response.sukses
                         });
 
-                        $('#tambahsiswaModal').modal('hide');
+                        $('div#tambahsiswaModal').modal('hide');
                         datasiswa();
                     }
                 },
