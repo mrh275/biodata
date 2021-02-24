@@ -264,7 +264,30 @@ class Biodata extends BaseController
         }
     }
 
-    public function simpansiswa()
+    public function editsiswa()
+    {
+        if ($this->request->isAJAX()) {
+            $nis = $this->request->getVar('nis');
+            $data  = [
+                'validation'        => \Config\Services::validation(),
+                'jenis_kelamin'     => $this->biodataModel->getJK(),
+                'kelas'             => $this->biodataModel->getKelas(),
+                'agama'             => $this->biodataModel->getAgama(),
+                'tempat_tinggal'    => $this->biodataModel->getTinggal(),
+                'transportasi'      => $this->biodataModel->getTransportasi(),
+                'datasiswa'         => $this->biodataModel->getSiswaByNis($nis),
+            ];
+
+            $msg = [
+                'data'  => view('modal/editsiswamodal', $data),
+            ];
+            echo json_encode($msg);
+        } else {
+            exit('Halaman tidak ditemukan. Silahkan hubungi admin.');
+        }
+    }
+
+    public function simpanSiswa()
     {
         if ($this->request->isAJAX()) {
             //Load validation services
@@ -413,6 +436,7 @@ class Biodata extends BaseController
                     ]
                 ],
             ])) {
+                //Load error dari validation untuk json
                 $msg = [
                     'error' => [
                         'nama'              => $validation->getError('nama'),
@@ -421,7 +445,7 @@ class Biodata extends BaseController
                         'nis'               => $validation->getError('nis'),
                         'nisn'              => $validation->getError('nisn'),
                         'nik'               => $validation->getError('nik'),
-                        'hh'                => $validation->getError('kk'),
+                        'kk'                => $validation->getError('kk'),
                         'anak_ke_berapa'    => $validation->getError('anak_ke_berapa'),
                         'tempatlahir'       => $validation->getError('tempatlahir'),
                         'tgl_lahir'         => $validation->getError('tgl_lahir'),
@@ -439,6 +463,7 @@ class Biodata extends BaseController
                     ],
                 ];
             } else {
+                //Ambil data dari form
                 $data = [
                     'nama'              => $this->request->getVar('nama'),
                     'jenis_kelamin'     => $this->request->getVar('jk'),
@@ -464,16 +489,84 @@ class Biodata extends BaseController
                     'created_at'        => date('Y-m-d')
                 ];
 
+                //Kirim data ke model
                 $this->biodataModel->add($data);
 
+                //Pesan berhasil memasukan data
                 $msg = [
                     'sukses' => "Data Siswa Baru sudah ditambakan.",
                 ];
             }
 
+            //Encode/convert array ke json
             echo json_encode($msg);
         } else {
+            //Escape error direct access
             exit('Data tidak ditemukan. Silahkan hubungi admin.');
+        }
+    }
+
+    public function updateSiswa()
+    {
+        if ($this->request->isAJAX()) {
+
+            //Ambil data dari form
+            $data = [
+                'nama'              => $this->request->getVar('nama'),
+                'jenis_kelamin'     => $this->request->getVar('jk'),
+                'kelas'             => $this->request->getVar('kelas'),
+                'nisn'              => $this->request->getVar('nisn'),
+                'nik'               => $this->request->getVar('nik'),
+                'no_kk'             => $this->request->getVar('kk'),
+                'anak_ke_berapa'    => $this->request->getVar('anak_ke_berapa'),
+                'tempat_lahir'      => $this->request->getVar('tempatlahir'),
+                'tanggal_lahir'     => $this->request->getVar('tgl_lahir'),
+                'no_akte'           => $this->request->getVar('no_akte'),
+                'agama'             => $this->request->getVar('agama'),
+                'alamat'            => $this->request->getVar('alamat'),
+                'rt'                => $this->request->getVar('rt'),
+                'rw'                => $this->request->getVar('rw'),
+                'dusun'             => $this->request->getVar('dusun'),
+                'desa'              => $this->request->getVar('desa'),
+                'kecamatan'         => $this->request->getVar('kecamatan'),
+                'pos'               => $this->request->getVar('pos'),
+                'tempat_tinggal'    => $this->request->getVar('tinggal'),
+                'transportasi'      => $this->request->getVar('transportasi'),
+                'created_at'        => date('Y-m-d')
+            ];
+
+            $nis = $this->request->getVar('nis');
+
+            //Kirim data ke model
+            $this->biodataModel->updateDataSiswa($nis, $data);
+
+            //Pesan berhasil memasukan data
+            $msg = [
+                'sukses' => "Data Siswa sudah diubah.",
+            ];
+
+
+            //Encode/convert array ke json
+            echo json_encode($msg);
+        } else {
+            //Escape error direct access
+            exit('Halaman tidak ditemukan. Silahkan hubungi admin.');
+        }
+    }
+
+    public function hapusSiswa()
+    {
+        if ($this->request->isAJAX()) {
+            $nis = $this->request->getVar('nis');
+
+            $this->biodataModel->hapusSiswaByNis($nis);
+
+            $msg = [
+                'sukses' => "Data Siswa telah berhasil dihapus.",
+            ];
+
+            //Encode/convert array ke json
+            echo json_encode($msg);
         }
     }
 
