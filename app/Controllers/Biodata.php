@@ -222,6 +222,7 @@ class Biodata extends BaseController
             'listMenu'      => $this->menuModel->getMenu(),
             'submenuSlug'   => $submenu,
             'submenuName'   => $this->menuModel->getSubmenuBy($submenu),
+            'title'         => 'Data Diri Siswa | Mini Dapodik',
         ];
 
         return view('admin/biodata', $data);
