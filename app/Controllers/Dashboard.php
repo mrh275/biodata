@@ -10,6 +10,7 @@ class Dashboard extends BaseController
             'menu'      => 'dashboard',
             'listMenu'  => $this->menuModel->getMenu(),
             'submenuSlug'   => '',
+            'title'     => 'Beranda | Mini Dapodik',
         ];
 
         return view('admin/dashboard', $data);
