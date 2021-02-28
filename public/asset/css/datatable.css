@@ -5,4 +5,13 @@ table tbody tr.selected {
 .table-hover tbody tr:hover {
   background-color: rgba(0, 123, 255, 0.4) !important;
 }
+
+a.user-menu {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+a.user-menu div.gambar-user img {
+  max-width: 33px !important;
+}
 /*# sourceMappingURL=datatable.css.map */
