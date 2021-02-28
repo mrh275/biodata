@@ -24,6 +24,27 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <?php if ($menu == 'dashboard') : ?>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/dashboard') ?>" class="nav-link active">
+                            <i class="nav-icon fas fa-fw fa-tachometer-alt"></i>
+                            <p>
+                                Dashboard
+
+                            </p>
+                        </a>
+                    </li>
+                <?php else : ?>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/dashboard') ?>" class="nav-link ">
+                            <i class="nav-icon fas fa-fw fa-tachometer-alt"></i>
+                            <p>
+                                Dashboard
+
+                            </p>
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <?php foreach ($listMenu as $mainMenu) : ?>
                     <?php if ($menu == $mainMenu['slug_menu']) : ?>
                         <li class="nav-item menu-open <?= $mainMenu['has_submenu'] ?>">
