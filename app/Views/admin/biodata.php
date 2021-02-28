@@ -30,7 +30,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="<?= base_url('/biodata/tambahsiswa') ?>" class="btn btn-primary tambahsiswa"><i class="fas fa-plus-circle"></i> Tambah Siswa</a>
+                            <button type="button" class="btn btn-primary tambahsiswa"><i class="fas fa-plus-circle"></i> Tambah Siswa</button>
                             <button type="button" class="btn btn-success btn-edit" onclick="editsiswa()"><i class="fas fa-edit"></i> Edit</button>
                             <button type="button" class="btn btn-danger" onclick="hapussiswa()"><i class="fas fa-trash"></i> Hapus</button>
                         </div>
@@ -154,6 +154,12 @@
                     });
                 }
             })
+        } else {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Warning',
+                text: 'Silahkan pilih siswa yang ingin dihapus terlebih dahulu!'
+            });
         }
     }
 
