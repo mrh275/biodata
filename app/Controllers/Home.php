@@ -6,7 +6,12 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('front/front');
+
+		$data = [
+			'title'		=> 'Form Biodata | PPDB SMA Negeri 1 Rawamerta'
+		];
+
+		return view('front/front', $data);
 	}
 
 	//--------------------------------------------------------------------
