@@ -10,9 +10,16 @@
     <link href="<?= base_url('/asset/bootstrap') ?>/css/bootstrap.css" rel="stylesheet">
     <link href="<?= base_url('/asset') ?>/css/style.css" rel="stylesheet">
     <link href="<?= base_url('/asset') ?>/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('/asset') ?>/node_modules/sweetalert2/dist/sweetalert2.min.css">
     <link rel="shortcut icon" href="<?= base_url('/asset/img') ?>/favicon.ico" type="image/x-icon">
 
-    <title>Portal Biodata Siswa SMAN 1 Rawamerta</title>
+    <script src="<?= base_url('/asset') ?>/node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="<?= base_url('/asset') ?>/js/jquery.min.js"></script>
+    <script src="<?= base_url('/asset/bootstrap') ?>/js/bootstrap.js"></script>
+    <script src="<?= base_url('/asset') ?>/fontawesome/js/all.js"></script>
+    <script src="<?= base_url('/asset') ?>/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+    <title><?= $title ?></title>
 </head>
 
 <body>
@@ -50,10 +57,7 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="<?= base_url('/asset') ?>/js/popper.min.js"></script>
-    <script src="<?= base_url('/asset/bootstrap') ?>/js/bootstrap.js"></script>
-    <script src="<?= base_url('/asset') ?>/js/jquery.min.js"></script>
-    <script src="<?= base_url('/asset') ?>/fontawesome/js/all.js"></script>
+
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
@@ -63,7 +67,6 @@
     <script>
         // const fileUpload = new FileReader();
 
-        document.querySelector('.alert').alert();
 
         //Ijazah preview
         function previewIjazah() {
