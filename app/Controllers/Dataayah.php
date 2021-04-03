@@ -6,18 +6,27 @@ class Dataayah extends BaseController
 {
     public function index()
     {
-        if (session()->get('nis') == FALSE) {
-            return redirect()->to('/biodata');
+        // if (session()->get('nis') == FALSE) {
+        //     return redirect()->to('/biodata');
+        // }
+
+        if ($this->request->isAJAX()) {
+            $data = [
+                'validation'    => \Config\Services::validation(),
+                'pendidikan'    => $this->dataAyahModel->getPendidikan(),
+                'pekerjaan'     => $this->dataAyahModel->getPekerjaan(),
+                'penghasilan'   => $this->dataAyahModel->getPenghasilan(),
+            ];
+
+            $msg = [
+                'data' => view('front/form-ayah', $data),
+                'isi'   => 'Hallo'
+            ];
+
+            echo json_encode($msg);
+        } else {
+            exit('Halaman tidak ditemukan!');
         }
-
-        $data  = [
-            'validation'    => \Config\Services::validation(),
-            'pendidikan'    => $this->dataAyahModel->getPendidikan(),
-            'pekerjaan'     => $this->dataAyahModel->getPekerjaan(),
-            'penghasilan'   => $this->dataAyahModel->getPenghasilan(),
-        ];
-
-        return view('front/form-ayah', $data);
     }
 
     public function add()
